@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+
+<head>
+    <meta name="description" content="This is a history article about Fiji"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="A simple webpage for IS221 Lab 1"/>
+    <title>The Indenture System</title>
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    
+    <!-- Main site stylesheet -->
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    
+    <!-- Page-specific stylesheet -->
+    <link rel="stylesheet" th:href="@{/css/history1.css}"/>
+</head>
+<body>
+	<!-- Header -->
+  <header>
+    <nav>
+      <a th:href="@{/home}" class="logo">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <circle cx="20" cy="20" r="18" fill="none" stroke="url(#logoGradient)" stroke-width="2" />
+          <circle cx="20" cy="20" r="14" fill="none" stroke="url(#logoGradient)" stroke-width="1.5" opacity="0.7" />
+          <circle cx="20" cy="20" r="10" fill="none" stroke="url(#logoGradient)" stroke-width="1" opacity="0.5" />
+          <circle cx="20" cy="20" r="6" fill="none" stroke="url(#logoGradient)" stroke-width="0.5" opacity="0.3" />
+          <circle cx="20" cy="20" r="3" fill="url(#logoGradient)" />
+        </svg>
+        <span class="logo-text">Circle of Knowledge</span>
+      </a>
+
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <input class="search-button1" type="search" placeholder="Search..." value="Search"/><a href="@{/search_result}" class="search-button">🔍</a>
+        <div class="navbar-brand d-flex align-items-center">
+            <a href="#">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/001/505/138/small_2x/notification-bell-icon-free-vector.jpg" 
+                 alt="Notification" width="45" height="45" class="rounded me-2"/>
+            </a>
+            <a th:href="@{/profile}">
+                    <img src="https://cdn-icons-png.flaticon.com/512/7077/7077313.png" 
+                     alt="Profile" width="50" height="50" class="rounded"/>
+            </a>
+            <div sec:authorize="isAuthenticated()" class="logo-text">
+                Welcome <b><span sec:authentication="principal.username">Username</span></b>
+                &nbsp;
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Logout" />
+                </form>
+            </div>
+        </div>
+        <div>
+            <ul class="nav-links">
+                <li><a th:href="@{/home}" class="nav-link">Home</a></li>
+                <li><a th:href="@{/archive}" class="nav-link">Archive</a></li>
+                <li><a th:href="@{/resources}" class="nav-link">Resources</a></li>
+                <li><a th:href="@{/forum}" class="nav-link">Discussion Forum</a></li>
+            </ul>
+        </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section id="hero" class="page-hero">
+      <div class="hero-content">
+        <h1>The Indenture System</h1>
+      </div>
+    </section>
+	<section id="history-content" class="content-section">
+    <div class="container">
+		<p>One of the problems facing Sir Arthur Gordon in 1875 was how Fiji could develop its economy in order to help
+		it pay its way. The Imperial Government had given the colony a grant of £100000, but when that was spent Fiji
+		was expected to find its own finances.</p>
+		<p>The answer obviously lay in the development of crops, especially cotton, copra and sugarcane, However, these
+		were plantation crops hich required large amounts of labour. By this time, the import of Pacific labourers was 
+		lessening as a result of the controls placed on it, and Gordon was firmly opposed to using Fijian labour. He argued
+		that to do so would break up the village life of the Fijian people and undermine their whole communal way of living.</p>
+		<p>Instead, Gordon recruited Indian labour, and thus changed the course of Fiji's future. Gordon's solution was not
+		a new one, for Indian labour had been recruited for this type of work Natal in 1838 and subsequently in Trinidad,
+		British Guiana, Mauritius and Dutch Guinea. Gordon's service in Trinidad and Mauritius, where the <strong>indenture</strong> system
+		had worked satisfactorily, led him to believe hat Fiji would be no different. Gordon's desire not to disrupt the Fijian
+		way S life was challenged by an opposite view which held that he Fijians would progress only when they were introduced
+		to the modern world and changed to a way of life based on cash rather than communal living. Gordon's view prevailed, and
+		the indenture system began.</p>
+	<h2>Terms<em/></h2>
+		<img src="leonidas.jpg" alt="Leonidas Boat" title="Leonidas: transported labourers from India" width="400" height="300" />
+		<p>Arrangements were made in 1878 with the Indian Government for Indian labourers to be brought to Fiji for e period of
+		five years. The labourers were to work as directed by the government, and were to be free to return to India at their own
+		expense at the end of five years. If they elected to stay in Fiji for another five years, their return passages, as well as
+		those of their children, would be paid by the Fiji Government. If they wished at the end of ten years to stay in Fiji, they
+		could do so. </p>
+		<p>The Indian Government insisted that for every hundred men sent to Fiji, forty women should also be sent. So, on 14 May 1879,
+		the <em>Leonidas</em> landed the first shipload of 498 labourers from India.</p>
+	<h2>Recruitment</h2>
+		<p>Indians came to Fiji for a great variety of reasons. Poverty and the chance to make a fresh start were the greatest incentives,
+		although some came to escape family quarrels or trouble with the authorities. Very few Indians came to Fiji simply because of a
+		desire to emigrate. In fact, a journey across the seas meant a loss of caste membership for many Indians, and any journey involved
+		expensive feasts and ceremonies of purification when the traveller returned to India.</p>
+		<p>Labourers were engaged by subagents in India who received a commission for every labourer who reached Fiji. The main work was done
+		by recruiters whose job was to explain the terms of the <strong>contract</strong> and to see that the emigrant was properly enrolled before a magistrate
+		and had a thorough medical examination.</p>
+		<p>It was difficult to break down the reluctance of Indians to travel, so many recruiters resorted to tricks in order to entice people
+		to sign on: they exaggerated the fine prospects a labourer vould have in Fiji; they failed to explain all parts of the contract, especially
+		that part which laid down a penalty if the labourer should not complete his contract; and they told those who feared the long sea journey
+		that Fiji was very close to India, even that it was part of India itself! Altogether, over 60, 500 labourers were signed up.</p>
+	<h2>The System in Practice</h2>
+		<p>The labourers were housed in 'lines', rows of barracks containing sixteen rooms, each three metres by three and a half metres. These
+		rooms were in double rows, eight in each row, with partitions which stopped short of the ceiling. Each room housed either three single men,
+		or a married man and his wife with up to three children. All living, cooking, eating, and sleeping was carried out in this one room in which
+		the inhabitants could not escape from the noise f their neighbours and where they could gain very little privacy. Because conditions were so
+		overcrowded, life was very tough, and crime and immorality were soon widespread.</p>
+		<img src="housing.jpg" alt="Labourers house in 'lines'" title="Labourers housing" width="400" height="300" />
+		<p>The quota of forty women for every hundred men was not kept up. Rumours, accusations, jealousy and fighting were common. No provision
+		was made for educating the children of the labourers, and checks on conditions by the government inspector were both infrequent and <strong>inadequate</strong>.
+		There was also e lack of medical care, which resulted in a high death rate. The pressure of life on the lines was also illustrated by the large
+		number of suicides which occurred.</p>
+		<p>Work done in the fields varied according to the time of the year. The labourers cut cane during harvesting, and planted, weeded and
+		cleared drains at other times. Work was often done on the 'task system' by which the workers' allocations for the day were measured out,
+		and they were required to complete certain tasks before nightfall. I they failed, they would receive no wages for that day and were
+		liable to be prosecuted. AS overseers and sardars (foreman) were usually paid a bonus if the work was done quickly and cheaply, 
+		they tended to over-task the workers, setting tasks which could be completed only by the strongest. However, closer checks on the system
+		after 1905 greatly reduced the amount of over-tasking.</p>
+		<img src="labourers2.jpg" alt="Labourers" title="Labourers" width="400" height="300" />
+		<p>Corporal punishment was often used in the field by overseers and sardars to extract the maximum amount of work, and most workers were
+		afraid to report such abuse for fear of reprisals. Even when the government nspectors came, they seldom received true picture of working
+		conditions because of such fear. When a complaint was lodged and it reached the courts, the workers were still at a disadvantage. They 
+		understood little of the workings of the courts and were unable to match the legal aid available to the overseer or sardar. Most cases 
+		in which a worker's plea was upheld saw a sentence imposed on the overseer or sardar which was often so light that true justice was seldom
+		seen to be done.</p>
+		<img src="labourers.jpg" alt="Labourers working" title="Labourers working" width="400" height="300" />
+		<p>Because of the methods they used, sardars were frequently assaulted, Many laboufers also were prosecuted for failure to complete their
+		tasks,and they were convicted in nearly every case.</p>
+		</div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms of Service</a>
+        <a href="#support">Support</a>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Circle of Knowledge. All rights reserved. Nurturing Indigenous Knowledge, one step at a time.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  </body>
+
+</html>

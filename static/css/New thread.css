@@ -1,0 +1,132 @@
+/* -------------------------------
+   Create New Thread Page Styling
+   ------------------------------- */
+
+body{
+  min-height:100vh;
+  position:relative;
+  background: url('https://st4.depositphotos.com/39213204/39981/i/450/depositphotos_399811022-stock-photo-green-leaf-blurred-greenery-background.jpg') no-repeat center/cover fixed;
+  display:flex;
+  flex-direction:column;
+}
+
+main {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 2.5rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(245,250,255,0.92) 100%);
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  backdrop-filter: blur(8px);
+  text-align: left;
+  box-sizing: border-box;
+  width:700px;
+}
+
+/* Page Title */
+main h1 {
+  font-size: 2rem;
+  color: #0a3d62;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Back to Forum link */
+main a[href="/forum"] {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: #0077b6;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(0, 119, 182, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.6);
+}
+
+main a[href="/forum"]:hover {
+  background: linear-gradient(135deg, #0093E9 0%, #80D0C7 100%);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,147,233,0.2);
+}
+
+/* Divider */
+main hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0.1), rgba(0,0,0,0));
+  margin: 20px 0 30px;
+}
+
+/* Labels */
+main label {
+  display: block;
+  font-weight: 600;
+  color: #0f5160;
+  margin-bottom: 0.4rem;
+}
+
+/* Input fields */
+main input[type="text"],
+main textarea {
+  width: 100%;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  background: rgba(255,255,255,0.9);
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+main input[type="text"]:focus,
+main textarea:focus {
+  border-color: #00a896;
+  box-shadow: 0 8px 24px rgba(0,160,150,0.1);
+  transform: translateY(-2px);
+}
+
+/* Author text */
+main span[th\:text] {
+  display: inline-block;
+  font-weight: 600;
+  color: #007f91;
+  background: rgba(230, 255, 250, 0.6);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+
+/* Submit button */
+main button[type="submit"] {
+  display: inline-block;
+  background: linear-gradient(135deg, #0093E9 0%, #80D0C7 100%);
+  color: #fff;
+  padding: 0.8rem 2rem;
+  border-radius: 40px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,147,233,0.18);
+  transition: all 0.3s ease;
+}
+
+main button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 35px rgba(0,147,233,0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  main {
+    margin: 40px 20px;
+    padding: 1.8rem;
+  }
+  main h1 {
+    font-size: 1.6rem;
+  }
+}

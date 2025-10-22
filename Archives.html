@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+    <head>
+      <meta name="description" content="Healing in Fiji - Indigenous Knowledge and Traditional Practices" />
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Circle of Knowledge - Archive</title>
+
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+      <!-- Custom CSS -->
+      <link rel="stylesheet" th:href="@{/css/main.css}"/>
+      
+      <link rel="stylesheet" th:href="@{/css/archive.css}"/>
+
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <header>
+            <nav>
+                <a th:href="@{/home}" class="logo"  >
+                  <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#b7f954;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#279be4;stop-opacity:1" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="20" cy="20" r="18" fill="none" stroke="url(#logoGradient)" stroke-width="2" />
+                    <circle cx="20" cy="20" r="14" fill="none" stroke="url(#logoGradient)" stroke-width="1.5" opacity="0.7" />
+                    <circle cx="20" cy="20" r="10" fill="none" stroke="url(#logoGradient)" stroke-width="1" opacity="0.5" />
+                    <circle cx="20" cy="20" r="6" fill="none" stroke="url(#logoGradient)" stroke-width="0.5" opacity="0.3" />
+                    <circle cx="20" cy="20" r="3" fill="url(#logoGradient)" />
+                  </svg>
+                  <span class="logo-text">Circle of Knowledge</span>
+                </a>
+
+                <div class="menu-toggle" onclick="toggleMenu()">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <input class="search-button1" type="search" placeholder="Search..." value="Search"/>
+                <a href="@{/search_result}" class="search-button">🔍</a>
+                <div class="navbar-brand d-flex align-items-center">
+                    <a href="#">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/001/505/138/small_2x/notification-bell-icon-free-vector.jpg" 
+                         alt="Notification" width="45" height="45" class="rounded me-2"/>
+                    </a>
+                    <a th:href="@{/profile}">
+                     <img src="https://cdn-icons-png.flaticon.com/512/7077/7077313.png" 
+                      alt="Profile" width="50" height="50" class="rounded"/>
+                    </a>
+                    
+                </div>
+                <div sec:authorize="isAuthenticated()" class="logo-text">
+                    Welcome <b><span sec:authentication="principal.username">Username</span></b>
+                    &nbsp;
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Logout" />
+                    </form>
+                </div>
+                <ul class="nav-links">
+                  <li><a th:href="@{/home}" class="nav-link">Home</a></li>
+                  <li><a th:href="@{/archive}" class="nav-link">Archive</a></li>
+                  <li><a th:href="@{/resources}" class="nav-link">Resources</a></li>
+                  <li><a th:href="@{/forum}" class="nav-link">Discussion Forum</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="stats-banner" id="hero" 
+             style="background: linear-gradient(135deg,#F1E5AC 0%,#4a90e2 100%,#4A7C8A 100%);">
+             <div class="container">
+               <h1 class="fw-bold display-5 mb-3">📚 Archive</h1>
+               <h3> Preserving Indigenous Knowledge and Cultural Heritage </h3>
+               <p>"Explore our curated archive of Fiji’s indigenous knowledge and cultural heritage — 
+                   from ancient pottery and healing herbs to fishing traditions and historical stories."</p>
+             </div>
+            </div> 
+
+            <!-- Archive Cards -->
+            <div class="row g-4">
+                <div class="col-12 col-md-6">
+                    <div class="card h-100 shadow-lg border-3 rounded-4">
+                        <div class="card-body">
+                          <h5 class="card-title">🏺 Ancient Pottery</h5>
+                          <p class="card-text">A look into traditional pottery-making techniques passed down through generations.</p>
+                          <a href="archive_pottery.html" class="btn gradient-btn rounded-pill">Read More</a>
+                        </div>
+                        <div class="card-footer small text-muted">Craft • Jan 2025</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="card h-100 shadow-lg  border-3 rounded-4">
+                        <div class="card-body">
+                          <h5 class="card-title">🌿 Healing Herbs</h5>
+                          <p class="card-text">Knowledge of herbal remedies used in traditional healing practices.</p>
+                          <a th:href="@{/archive_herbal}" class="btn gradient-btn rounded-pill">Read More</a>
+                        </div>
+                        <div class="card-footer small text-muted">Healing • Feb 2025</div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <div class="card h-100 shadow-lg  border-3 rounded-4">
+                    <div class="card-body">
+                      <h5 class="card-title">🎣 Fishing Traditions</h5>
+                      <p class="card-text">Exploring sustainable fishing practices from indigenous communities.</p>
+                      <a th:href="@{/archive_fishing}" class="btn gradient-btn rounded-pill">Read More</a>
+                    </div>
+                    <div class="card-footer small text-muted">Environment • Mar 2025</div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6" >
+                    <div class="card h-100 shadow-lg  border-3 rounded-4">
+                        <div class="card-body">
+                          <h5 class="card-title">📜 Historical Stories</h5>
+                          <p class="card-text">Stories that preserve the cultural heritage and ancestral wisdom.</p>
+                          <a th:href="@{/archive_history}" class="btn gradient-btn rounded-pill">Read More</a>
+                        </div>
+                        <div class="card-footer small text-muted">History • Apr 2025</div>
+                    </div>
+                </div>
+           </div>
+       </main>
+
+       <!-- Footer -->
+       <footer>
+         <p class="mb-0">&copy; 2025 Circle of Knowledge</p>
+       </footer>
+
+       <!-- Bootstrap JS -->
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

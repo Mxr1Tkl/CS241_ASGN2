@@ -1,0 +1,163 @@
+/* -------------------------
+   PREMIUM FORUM PAGE DESIGN
+   ------------------------- */
+
+/* Page Layout with Background Image */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url('https://e0.pxfuel.com/wallpapers/1017/338/desktop-wallpaper-light-purple-floral-background-lavender-floral.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: "Poppins", sans-serif;
+    color: #1a1a1a;
+    position: relative;
+}
+
+/* Soft overlay for readability */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.75); /* subtle light overlay */
+    backdrop-filter: blur(3px);
+    z-index: -1;
+}
+
+/* Main Container */
+main.container {
+    flex: 1;
+    max-width: 1000px;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+    transition: all 0.3s ease;
+	margin-top: 30px;
+	margin-bottom: 60px;
+}
+
+/* New Thread Button */
+.btn-new-thread {
+    display: inline-block;
+    background: linear-gradient(135deg, #0093E9 0%, #80D0C7 100%);
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    box-shadow: 0 6px 20px rgba(0, 147, 233, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-new-thread:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 147, 233, 0.4);
+}
+
+/* Threads Container */
+.threads {
+    margin-top: 3rem;
+	margin-bottom: 1rem;
+    display: grid;
+    gap: 1.5rem;
+	height:350px;
+}
+
+/* Thread Card with Light Gradient */
+.thread-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f2f9ff 100%);
+    border-radius: 20px;
+    padding: 1.8rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.30);
+    border-left: 5px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+	margin-bottom: 20px;
+}
+
+/* Alternate gradient for variety */
+.thread-card:nth-child(2n) {
+    background: linear-gradient(135deg, #f9fffb 0%, #e9f8ef 100%);
+}
+
+.thread-card:nth-child(3n) {
+    background: linear-gradient(135deg, #fff9fb 0%, #f9ebf2 100%);
+}
+
+.thread-card:hover {
+    transform: translateY(-5px);
+    border-left: 5px solid #00a896;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.10);
+}
+
+/* Thread Title */
+.thread-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #004d61;
+    text-decoration: none;
+    margin-bottom: 0.4rem;
+    transition: color 0.3s ease;
+}
+
+.thread-title:hover {
+    color: #00a896;
+}
+
+/* Thread Meta Info */
+.thread-meta {
+	margin-top:30px;
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 0.8rem;
+}
+
+/* Thread Preview Text */
+.thread-body {
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Delete Button */
+.thread-card form button {
+    background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+	margin-top: 80px;
+}
+
+.thread-card form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 95, 109, 0.3);
+}
+
+/* Footer Always at Bottom */
+footer {
+    background: rgba(0, 0, 0, 0.9);
+    color: #ddd;
+    padding: 1.5rem 0;
+    text-align: center;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+}
+
+footer a {
+    color: #9ee8cf;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #00c896;
+}

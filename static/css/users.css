@@ -1,0 +1,33 @@
+body {
+  background: #f0fdf4; /* soft pale green */
+  font-family: Arial, sans-serif;
+}
+
+/* Custom navbar tweaks */
+.navbar-brand img {
+  margin: 10px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.Name{
+	margin-left:15px;
+	text-align:center;
+}
+
+.nav-link {
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: #16a34a !important; /* green highlight */
+}
+
+/* Dropdown submenu (Bootstrap doesn’t include by default) */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+}

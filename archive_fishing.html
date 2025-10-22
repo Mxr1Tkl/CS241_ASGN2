@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0, charset=UTF-8"/>
+    <title>Nakawakawa women’s strange fishing tradition — Local News</title>
+    <meta name="description" content="A report on the Nakawakawa women's unusual coastal fishing ritual — community practices, meaning, and local reactions." />
+  
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+    <link rel="stylesheet" th:href="@{/css/archive_fishing.css}"/>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+              <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <circle cx="20" cy="20" r="18" fill="none" stroke="url(#logoGradient)" stroke-width="2" />
+                <circle cx="20" cy="20" r="14" fill="none" stroke="url(#logoGradient)" stroke-width="1.5" opacity="0.7" />
+                <circle cx="20" cy="20" r="10" fill="none" stroke="url(#logoGradient)" stroke-width="1" opacity="0.5" />
+                <circle cx="20" cy="20" r="6" fill="none" stroke="url(#logoGradient)" stroke-width="0.5" opacity="0.3" />
+                <circle cx="20" cy="20" r="3" fill="url(#logoGradient)" />
+              </svg>
+              <span class="logo-text">Circle of Knowledge</span>
+            </a>
+
+            <div class="menu-toggle" onclick="toggleMenu()">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <input class="search-button1" type="search" placeholder="Search..." value="Search"/><a href="@{/search_result}" class="search-button">🔍</a>
+            <div class="navbar-brand d-flex align-items-center">
+                <a href="#">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/001/505/138/small_2x/notification-bell-icon-free-vector.jpg" 
+                     alt="Notification" width="45" height="45" class="rounded me-2"/>
+                </a>
+                <a href="@{/profile}">
+                    <img src="https://cdn-icons-png.flaticon.com/512/7077/7077313.png" 
+                     alt="Profile" width="50" height="50" class="rounded"/>
+                </a>
+                <div sec:authorize="isAuthenticated()" class="logo-text">
+                    Welcome <b><span sec:authentication="principal.username">Username</span></b>
+                    &nbsp;
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Logout" />
+                    </form>
+                </div>
+            </div>
+
+            <ul class="nav-links">
+              <li><a href="@{/home}" class="nav-link">Home</a></li>
+              <li><a href="@{/archive}" class="nav-link">Archive</a></li>
+              <li><a th:href="@{/resources}" class="nav-link">Resources</a></li>
+              <li><a href="@{/forum}" class="nav-link">Discussion Forum</a></li>
+            </ul>
+        </nav>
+    </header>
+  <main class="container">
+    <header class="site-header">
+      <div class="kicker">Local News • News</div>
+      <h1>Nakawakawa women’s strange fishing tradition</h1>
+      <div class="meta">
+        Published: <time datetime="2021-05-30">May 30, 2021</time> |
+        Last updated: <time datetime="2021-05-30">May 30, 2021</time> |
+        By <strong>John Mitchell</strong>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="article-heading">
+      <figure>
+        <!-- Replace src with your image -->
+        <img src="archive_fishing.jpg" alt="Nakawakawa shoreline at low tide">
+        <figcaption>Nakawakawa shoreline — tradition takes place at low tide. (Photo: local contributor)</figcaption>
+      </figure>
+      <div>
+        <p class="lead">A coastal community tradition practiced by the women of Nakawakawa has drawn curiosity from visitors and researchers alike — a ritual fishing method performed each season that blends practical harvesting with ceremonial meaning.</p>
+        <div class="tags" aria-hidden="true">
+          <span class="tag">Culture</span>
+          <span class="tag">Nakawakawa</span>
+          <span class="tag">Tradition</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="card" id="article">
+      <p class="section">
+        Nakawakawa — tucked on the sheltered coast of (region), is known locally for an unusual fishing practice led and performed by women in the village. Each year, at the start of the cooler season, groups of women gather at low tide to carry out a coordinated shoreline routine that locals say both improves their catch and strengthens communal bonds.
+      </p>
+
+      <p class="section">
+        The tradition — described by older residents as part ritual and part pragmatic technique — involves moving slowly along reef flats while using woven leaf fans and low, synchronized calls to channel small fish into shallow pools where they can be scooped up by hand. The practice has been observed by visiting journalists and cultural workers as a distinctive expression of local ecological knowledge.
+      </p>
+
+      <blockquote class="quote" aria-label="local quote">
+        “We fish like this because our mothers did — it is careful, respectful of the reef, and it keeps the younger ones learning how to read the tide,” — one elder from the village told this reporter.
+      </blockquote>
+
+      <h2 class="section">Origins and meaning</h2>
+      <p class="section">
+        According to village storytellers, the practice predates recent fishing gear and developed from an intimate familiarity with tidal rhythms, reef channels and fish behavior. Elders say the ritual also marks transitions in the community calendar — harvest, marriage seasons and remembrance days — and includes songs and specific hand movements that have been passed down through generations.
+      </p>
+
+      <h2 class="section">A sustainable technique?</h2>
+      <p class="section">
+        Observers note that the method is low-impact: it targets small nearshore species rather than deep-water or commercially valuable stocks, and village rules restrict over-harvesting. Local leaders told this paper that restrictions (such as seasonal pauses and selective return of breeding-sized animals) help maintain local fisheries while keeping the practice available to future generations.
+      </p>
+
+      <h2 class="section">Community reaction and outside interest</h2>
+      <p class="section">
+        The practice has attracted respectful attention from cultural researchers and eco-tour operators. While some visitors bring cameras, village authorities have requested sensitivity — they emphasize that the tradition is primarily for community use and is not a staged tourist spectacle. The village council has established simple guidelines for visitors, asking them to seek permission, avoid flash photography during the ritual, and to observe from a distance.
+      </p>
+
+      <h2 class="section">Concerns and protections</h2>
+      <p class="section">
+        A few conservationists have flagged potential risks if the practice becomes commodified — increased tourist footfall or uncontrolled filming could disturb the reef or alter the way the method is performed. Community leaders say they welcome respectful research partnerships and training that help the village protect both its reef habitats and cultural heritage.
+      </p>
+
+      <h2 class="section">Voices from Nakawakawa</h2>
+      <p class="section"><strong>Chair of the village council:</strong> “This is our way of living with the sea. We teach our daughters to read the tide and to take only what is needed.”</p>
+      <p class="section"><strong>A young participant:</strong> “It’s not only about fish — when we go together we laugh, we sing, and we remember.”</p>
+
+      <h2 class="section">How to visit respectfully</h2>
+      <p class="section">
+        If you wish to learn more or observe the tradition, contact the local tourism office and request a guided visit. Expect to be asked to follow village rules: avoid littering, dress modestly, and do not touch or remove ritual items. Always ask before photographing individuals.
+      </p>
+
+      <footer class="article-footer">
+        <div>Report: John Mitchell</div>
+        <div>Source: Local interviews & community statements</div>
+      </footer>
+    </article>
+
+    
+  </main>
+</body>
+</html>

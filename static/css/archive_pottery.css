@@ -1,0 +1,6 @@
+body { font-family: Arial, sans-serif; max-width: 800px; margin: 2rem auto; line-height: 1.6; padding: 0 1rem; }
+header { text-align: center; margin-bottom: 2rem; }
+header h1 { margin-bottom: 0.3rem; }
+header p { color: #555; font-style: italic; }
+.section-title { color: #2D5A87; margin-top: 2rem; margin-bottom: 0.75rem; border-bottom: 2px solid #4A7C8A; padding-bottom: 0.3rem; }
+.citation { font-size: 0.9rem; color: #666; margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 1rem; }

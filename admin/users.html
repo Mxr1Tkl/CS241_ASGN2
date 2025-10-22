@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head>
+        <title>User Management</title>
+        <meta name="viewpoint" content="width=device-width, initial-scale=1.0, charset=UTF-8"/>
+        
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        
+        <!-- Custom CSS -->
+        <link rel="stylesheet" th:href="@{/css/main.css}" type="text/css" />
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+            <nav>
+                <a th:href="@{/home}" class="logo">
+                  <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="20" cy="20" r="18" fill="none" stroke="url(#logoGradient)" stroke-width="2" />
+                    <circle cx="20" cy="20" r="14" fill="none" stroke="url(#logoGradient)" stroke-width="1.5" opacity="0.7" />
+                    <circle cx="20" cy="20" r="10" fill="none" stroke="url(#logoGradient)" stroke-width="1" opacity="0.5" />
+                    <circle cx="20" cy="20" r="6" fill="none" stroke="url(#logoGradient)" stroke-width="0.5" opacity="0.3" />
+                    <circle cx="20" cy="20" r="3" fill="url(#logoGradient)" />
+                  </svg>
+                  <span class="logo-text">Circle of Knowledge</span>
+                </a>
+
+                <div class="menu-toggle" onclick="toggleMenu()">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <input class="search-button1" type="search" placeholder="Search..." value="Search"/><a href="@{/search_result}" class="search-button">🔍</a>
+                <div class="navbar-brand d-flex align-items-center">
+                    <a href="#">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/001/505/138/small_2x/notification-bell-icon-free-vector.jpg" 
+                         alt="Notification" width="45" height="45" class="rounded me-2"/>
+                    </a>
+                    <a th:href="@{/profile}">
+                    <img src="https://cdn-icons-png.flaticon.com/512/7077/7077313.png" 
+                     alt="Profile" width="50" height="50" class="rounded"/>
+                </a>
+                <div sec:authorize="isAuthenticated()" class="logo-text">
+                    Welcome <b><span sec:authentication="principal.username">Username</span></b>
+                    &nbsp;
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Logout" />
+                    </form>
+                </div>
+            </div>
+            <div>
+                    <ul class="nav-links">
+                        <li><a th:href="@{/home}" class="nav-link">Home</a></li>
+                        <li><a th:href="@{/archive}" class="nav-link">Archive</a></li>
+                        <li><a th:href="@{/resources}" class="nav-link">Resources</a></li>
+                        <li><a th:href="@{/admin/users}" class="nav-link">Users List</a></li>
+                        <li><a th:href="@{/forum}" class="nav-link">Discussion Forum</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main align="center">
+            <h1>User Management</h1>
+            <br/><br/>
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Current Role</th>
+                        <th>Update Role</th>
+                        <th>Delete User</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${users}">
+                        <td th:text="${user.id}">User ID</td>
+                        <td th:text="${user.username}">Username</td>
+                        <td>
+                            <span th:each="role : ${user.roles}" th:text="${role.name} + ' '"></span>
+                        </td>
+                        <td>
+                            <div>
+                                <form th:action="@{'/admin/users/' + ${user.username} + '/role'}" method="post">
+                                    <select name="roleName">
+                                        <option th:each="role : ${roles}" th:value="${role.name}" 
+                                                th:text="${role.name}" th:if="${!user.roles.contains(role)}"></option>
+                                    </select>
+                                    <button type="submit">Update</button>
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <form th:action="@{'/admin/users/' + ${user.id} + '/delete'}" 
+                                      method="post" style="display:inline;">
+                                    <button type="submit" onclick="return confirm('Are you sure you want to delete this user?');">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#support">Support</a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Circle of Knowledge. All rights reserved. Nurturing Indigenous Knowledge, one step at a time.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Custom Script -->
+        <script th:src="@{/js/script.js}"></script>
+    </body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0, charset=UTF-8"/>
+    <title>Hunting Ideologies</title> 
+<!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Main site stylesheet -->
+  <link rel="stylesheet" th:href="@{/css/main.css}"/>
+  <!-- Page-specific stylesheet -->
+  <link rel="stylesheet" th:href="@{/css/history1.css}"/> 
+</head>
+	
+<body>
+	<!-- Header -->
+  <header>
+    <nav>
+      <a th:href="@{/home}" class="logo">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <circle cx="20" cy="20" r="18" fill="none" stroke="url(#logoGradient)" stroke-width="2" />
+          <circle cx="20" cy="20" r="14" fill="none" stroke="url(#logoGradient)" stroke-width="1.5" opacity="0.7" />
+          <circle cx="20" cy="20" r="10" fill="none" stroke="url(#logoGradient)" stroke-width="1" opacity="0.5" />
+          <circle cx="20" cy="20" r="6" fill="none" stroke="url(#logoGradient)" stroke-width="0.5" opacity="0.3" />
+          <circle cx="20" cy="20" r="3" fill="url(#logoGradient)" />
+        </svg>
+        <span class="logo-text">Circle of Knowledge</span>
+      </a>
+
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <input class="search-button1" type="search" placeholder="Search..." value="Search"/><a href="@{/search_result}" class="search-button">🔍</a>
+        <div class="navbar-brand d-flex align-items-center">
+            <a href="#">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/001/505/138/small_2x/notification-bell-icon-free-vector.jpg" 
+                 alt="Notification" width="45" height="45" class="rounded me-2"/>
+            </a>
+            <a th:href="@{/profile}">
+                    <img src="https://cdn-icons-png.flaticon.com/512/7077/7077313.png" 
+                     alt="Profile" width="50" height="50" class="rounded"/>
+            </a>
+            <div sec:authorize="isAuthenticated()" class="logo-text">
+                Welcome <b><span sec:authentication="principal.username">Username</span></b>
+                &nbsp;
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Logout" />
+                </form>
+            </div>
+        </div>
+
+      <ul class="nav-links">
+        <li><a th:href="@{/home}" class="nav-link">Home</a></li>
+        <li><a th:href="@{/archive}" class="nav-link">Archive</a></li>
+        <li><a th:href="@{/resources}" class="nav-link">Resources</a></li>
+        <li><a th:href="@{/forum}" class="nav-link">Discussion Forum</a></li>
+      </ul>
+    </nav>
+  </header>
+
+	<!-- Main Content -->
+  <main>
+    <section id="hero" class="page-hero">
+      <div class="hero-content">
+        <h1>Hunting Ideologies</h1>
+      </div>
+    </section>
+
+    <section id="history-content" class="content-section">
+      <div class="container">
+	<h1><b>iTaukei Hunting</b></h1>
+	
+		<h2>Origins of Practice</h2>
+			<p>The origins of iTaukei hunting are deeply rooted in their traditional, self-sufficient way of life. For millennia, iTaukei people have thrived in their island environments 
+			by utilising a vast and collective knowledge of the land, sky, and sea, passed down through oral traditions like stories and ceremonies. This knowledge allowed for subsistence 
+			hunting and fishing, which were integral to their cultural survival. The entire system of food production, including hunting, was based on a holistic worldview of achieving sautu—a
+			state of peace and prosperity between humans and their environment.</p>
+			<img src="../images/iTaukei_1.jpg" alt="iTaukei women gathering vegetables for the hunted feast" width="300" height="300">
+		
+		<h2>Techniques</h2>
+			<p>Traditional iTaukei hunting methods included the use of traps, snares, or nets set within forest or nature reserves. A significant practice, particularly for wild pigs, involves 
+			hunting in groups, often with packs of dogs to track and corner the prey. Another method involved digging a large hole on a game trail and disguising it as a pitfall trap. The initial 
+			phase of a battle often began with warriors hurling stones with slings or firing arrows, suggesting these were also used for hunting at a distance before closing in on prey.</p>
+			<p>Watch the related video on YouTube: 
+			  <a href="https://youtu.be/4irV-s-MFwU" target="_blank" rel="noopener">
+				Click here to watch
+			  </a>
+			</p>
+
+		<h2>Tools & Technology</h2>
+			<p>The primary hunting tools of the iTaukei included the war club (i-wau), the throwing spear (moto or sa), and the bow and arrow (dakai or vucu). Spears, crafted from dense hardwoods 
+			by specialists (matai-ni-moto), could be over three metres long and were sometimes barbed with stingray thorns to make extraction difficult. Bows were typically made from mangrove roots, 
+			and arrows had hardwood or fish-bone tips designed to cause infection if not removed. For hunting at a distance, the iTaukei used the i-rabo (sling) to hurl stones. Some spears may have 
+			had obsidian heads.</p>
+			<img src="../images/iwau.jpg" alt="iTaukei War Club" width="300" height="300">
+			<img src="../images/moto.jpg" alt="iTaukei Throwing Spear" width="300" height="300">
+			<img src="../images/vucu.jpg" alt="iTaukei Bow and Arrow" width="300" height="300">
+			<img src="../images/irabo.jpg" alt="iTaukei Sling" width="300" height="300">
+		<h2>Cultural Significance</h2>
+			<p>Hunting is a culturally significant activity that reinforces the iTaukei connection to the vanua (the land, people, and spirituality). It is intrinsically linked to traditional ecological 
+			knowledge, which has enabled iTaukei communities to thrive for generations. The Forest Act 1992 legally recognises and upholds this cultural importance by affirming the customary rights of 
+			iTaukei landowners to hunt on their land for domestic purposes. This subsistence practice is not merely for food acquisition but is also part of a wider cultural heritage that ensures the 
+			sustainable use of resources, reflecting a deep respect for the environment and ancestral wisdom.</p>
+		<img src="../images/iTaukei_2.jpg" alt="iTaukei Men" width="300" height="300">
+	
+	<h1><b>Indian Hunting</b></h1>
+	
+		<h2>Origins of Practice</h2>
+			<p>Indian hunting practices vary from era to city. However, in India during the Mughal Empire, hunting was deemed a privilege for royalty and viewed as a symbol of masculine power.</p>
+		<img src="../images/mughalempirehunting.jpg" alt="Mughal Empire Hunting" width="300" height="300">
+		<h2>Techniques</h2>
+			<p>Hunting techniques from certain parts and periods of India like  Mughal-era India, involved methods such as forming "hunting circles" (qamarga) to enclose and trap animals, a 
+			practice sometimes involving thousands of men to drive the game.</p>
+		<img src="../images/qamarga.jpg" alt="Qamarga (Hunting Circles) to enclose prey" width="300" height="300">
+		<h2>Tools & Technology</h2>
+			<p>Early emperors like Babur used bows and arrows, which were later complemented and often replaced by swords as standard hunting gear. Firearms were introduced for hunting during 
+			the reign of Emperor Akbar (1556–1605). Trained animals, such as hunting cheetahs and hawks, were also used in place of human beaters.</p>
+		<img src="../images/bownarrows.jpg" alt="Mughal Empire Hunting Bow and Arrows" width="300" height="300">	
+		<img src="../images/firearms.jpg" alt="Mughal Empire Hunting Firearm" width="300" height="300">	
+		
+		<h2>Cultural Significance</h2>
+			<p>Hunting was an avid pastime for emperors, sometimes serving as a form of diplomacy between rulers. The killing of a fat beast was seen as a mark of manliness.</p>
+			<p>Watch the related video on YouTube: 
+			  <a href="https://youtu.be/nbuM0aJjVgE" target="_blank" rel="noopener">
+				Click here to watch
+			  </a>
+			</p>
+
+		<div id="more-info">
+  <h3>Want to know more? Read more below:</h3>
+  <ul>
+    <li><a href="https://www.fijitimes.com.fj/traditional-i-taukei-weapons-and-clubs/" target="_blank">Traditional i-Taukei Weapons and Clubs</a></li>
+    <li><a href="https://publications.anveshanaindia.com/wp-content/uploads/2023/01/HISTORY-OF-WILDLIFE-HUNTING-PRACTICES-IN-INDIA.pdf" target="_blank">History of Wildlife Hunting Practices in India</a></li>
+  </ul>
+</div>
+
+		</div>
+	</section>
+		</main>
+			<!-- Footer -->
+			  <footer>
+				<div class="footer-content">
+				  <div class="footer-links">
+					<a href="#privacy">Privacy Policy</a>
+					<a href="#terms">Terms of Service</a>
+					<a href="#support">Support</a>
+				  </div>
+				  <div class="copyright">
+					<p>&copy; 2025 Circle of Knowledge. All rights reserved. Nurturing Indigenous Knowledge, one step at a time.</p>
+				  </div>
+				</div>
+			</footer>
+
+	  <!-- Scripts -->
+	  <script src="script.js"></script>
+</body>
+</html>
+
+

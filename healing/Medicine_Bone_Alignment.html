@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+  <meta name="viewpoint" content="width=device-width, initial-scale=1.0, charset=UTF-8"/>
+  <title>Bone Alignment - Naiova’s Magic Touch</title>
+<!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Main site stylesheet -->
+  <link rel="stylesheet" th:href="@{/css/main.css}"/>
+  <!-- Page-specific stylesheet -->
+  <link rel="stylesheet" th:href="@{/css/history1.css}"/>
+</head>
+	
+<body>
+    <!-- Header -->
+  <header>
+    <nav>
+      <a th:href="@{/home}" class="logo">
+        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <circle cx="20" cy="20" r="18" fill="none" stroke="url(#logoGradient)" stroke-width="2" />
+          <circle cx="20" cy="20" r="14" fill="none" stroke="url(#logoGradient)" stroke-width="1.5" opacity="0.7" />
+          <circle cx="20" cy="20" r="10" fill="none" stroke="url(#logoGradient)" stroke-width="1" opacity="0.5" />
+          <circle cx="20" cy="20" r="6" fill="none" stroke="url(#logoGradient)" stroke-width="0.5" opacity="0.3" />
+          <circle cx="20" cy="20" r="3" fill="url(#logoGradient)" />
+        </svg>
+        <span class="logo-text">Circle of Knowledge</span>
+      </a>
+
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <input class="search-button1" type="search" placeholder="Search..." value="Search"/><a href="@{/search_result}" class="search-button">🔍</a>
+        <div class="navbar-brand d-flex align-items-center">
+            <a href="#">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/001/505/138/small_2x/notification-bell-icon-free-vector.jpg" 
+                 alt="Notification" width="45" height="45" class="rounded me-2"/>
+            </a>
+            <a th:href="@{/profile}">
+                    <img src="https://cdn-icons-png.flaticon.com/512/7077/7077313.png" 
+                     alt="Profile" width="50" height="50" class="rounded"/>
+            </a>
+            <div sec:authorize="isAuthenticated()" class="logo-text">
+                Welcome <b><span sec:authentication="principal.username">Username</span></b>
+                &nbsp;
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Logout" />
+                </form>
+            </div>
+        </div>
+
+      <ul class="nav-links">
+        <li><a th:href="@{/home}" class="nav-link">Home</a></li>
+        <li><a th:href="@{/archive}" class="nav-link">Archive</a></li>
+        <li><a th:href="@{/resources}" class="nav-link">Resources</a></li>
+        <li><a th:href="@{/forum}" class="nav-link">Discussion Forum</a></li>
+      </ul>
+    </nav>
+  </header>
+
+	<!-- Main Content -->
+  <main>
+    <section id="hero" class="page-hero">
+      <div class="hero-content">
+        <h1>Bone Alignment</h1>
+      </div>
+    </section>
+
+    <section id="history-content" class="content-section">
+      <div class="container">
+
+  <h1>Naiova’s Magic Touch</h1>
+  <p>
+    This article is adapted from the Fiji Times feature “Naiova’s Magic Touch,” which explored the work of traditional healer Isei Naiova of Nadroumai in Nadroga.
+  </p>
+
+  <div class="image-container">
+    <img src="isei_naiova.jpg" alt="Isei Naiova performing a traditional healing" />
+    <div class="caption" align="center">Isei Naiova</div>
+  </div>
+
+  <h2>Introduction & Early Claims</h2>
+  <p>
+    Known in local lore as the “man with the magic touch,” Isei Naiova is a traditional Fijian healer who claims to possess a supernatural ability to heal broken bones and speed up recovery. Over the past two decades, he says he has treated many rugby players and other injured persons using practices passed down from his forefathers.
+  </p>
+
+  <h2>Methods & Healing Practice</h2>
+  <p>
+    Naiova first discovered his healing gift about 20 years ago. His approach typically begins with a massage of the injured area, followed by the application of traditional leaves known as “kawakawarau” onto the skin around the broken bone. After about four days, he replaces the leaves, and claims that patients often begin to regain normal use of limbs during this period.
+  </p>
+  <p>
+    He explains that he senses the precise spot of injury by touch:
+    <blockquote>
+      “By touching the area where the injury occurred, I immediately know which part of the bone is broken.”
+    </blockquote>
+    Naiova describes that when he first touches, he can feel pain signals; after treatment, the pain eases.
+  </p>
+
+  <h2>High-Profile Patients & Rugby Cases</h2>
+  <p>
+    One of the most widely publicized cases is that of his nephew, Waisake Naholo, a Fijian-born rugby star playing for the All Blacks. In advance of the 2015 Rugby World Cup, Naholo was reportedly ruled out because of a cracked fibula. He then visited Nadroumai to undergo treatment by Naiova, who massaged the leg and applied kawakawarau leaves. After four days, the leaves were removed, and Naiova claimed the injury had healed. Shortly afterwards, Naholo passed medical and fitness tests and played in the tournament, even scoring a try with his first touch.
+  </p>
+  <p>
+    Naiova also names Sonny Bill Williams and Israel Dagg (All Blacks), and several Fijian rugby stars — Seru Rabeni, Sireli Bobo, Osea Kolinisau, Apisai Naikatini, Nemani Nagusa, and Jiuta Lutumailagi — among those he claims to have treated. He says Dagg visited him during a Fiji leg of a match, having heard of his healing reputation.
+  </p>
+
+  <h2>Claims & Controversy</h2>
+  <p>
+    Naiova describes his gift as spiritual and hereditary; he does not charge for treatments, believing his ability is a blessing from God. He also claims he sometimes carries kawakawarau leaves to rugby matches so he can provide aid if injuries occur during the game.
+  </p>
+  <p>
+    However, his claims attract skepticism. Western medical practitioners emphasize the lack of controlled scientific studies confirming that such leaf-based treatments can repair bone fractures. Some observers suggest that spontaneous healing, placebo effects, or anecdotal exaggeration may explain these dramatic stories.
+  </p>
+
+  <h2>Blending Tradition & Modern Medicine</h2>
+  <p>
+    The situation of Naiova is emblematic of a broader tension between traditional healing systems and modern biomedicine. Traditional healers often emphasize holistic approaches—herbal remedies, spiritual or ritual elements, and local cultural knowledge—whereas modern medicine demands evidence through imaging, trials, reproducibility, and standardized protocols.
+  </p>
+  <p>
+    Some proposals suggest that case studies, collaboration, or integrative research could help bridge gaps, exploring whether certain herbal or mechanical techniques might complement standard care—though rigorous validation is required.
+  </p>
+
+  <h2>Summary & Outlook</h2>
+  <p>
+    Isei Naiova remains a compelling and controversial figure in Fiji’s traditional healing landscape. His reputation continues to attract attention, both from supporters who see him as preserving ancestral wisdom and from skeptics demanding empirical proof. The stories around Naholo’s recovery, and the many rugby players who reportedly sought his treatment, will continue to be referenced in discussions about the role of indigenous medicine in modern athletic and health systems.
+  </p>
+
+  <div class="source">
+    <strong>Source:</strong> Fiji Times, “Naiova’s Magic Touch,” Sept 4, 2017.
+  </div>
+	</div>
+    </section>
+	  </main>
+			<!-- Footer -->
+			  <footer>
+				<div class="footer-content">
+				  <div class="footer-links">
+					<a href="#privacy">Privacy Policy</a>
+					<a href="#terms">Terms of Service</a>
+					<a href="#support">Support</a>
+				  </div>
+				  <div class="copyright">
+					<p>&copy; 2025 Circle of Knowledge. All rights reserved. Nurturing Indigenous Knowledge, one step at a time.</p>
+				  </div>
+				</div>
+			</footer>
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

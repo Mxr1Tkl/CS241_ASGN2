@@ -1,0 +1,35 @@
+body{
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    max-width:900px;
+    margin:2rem auto;
+    color:#123;
+    line-height:1.55;
+    padding:0 1rem;
+}
+
+header{
+    background:linear-gradient(135deg,#F1E5AC 0%,#4a90e2 100%);
+    color:#042; 
+    color:color-mix(in srgb, white 75%);
+    padding:2rem;
+    border-radius:8px;
+    text-align:center
+}
+
+h1{
+    margin:0 0 .25rem;
+    font-size:1.6rem
+}
+
+.lead{margin:0;font-size:.98rem;opacity:.95}
+section{margin-top:1.25rem;background:#fff;padding:1rem;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.plant{display:grid;grid-template-columns:1fr 160px;gap:0.5rem;align-items:center;border-bottom:1px dashed #eee;padding:0.6rem 0}
+.plant:last-child{border-bottom:none}
+.scientific{font-style:italic;color:#3a556e}
+.use{font-weight:600;color:#2D5A87}
+.howto{font-size:.95rem;color:#333}
+.note{background:#fffbeb;border-left:4px solid #ffe08a;padding:.6rem;margin:.8rem 0;border-radius:4px}
+footer{margin-top:1.5rem;text-align:center;color:#666;font-size:.9rem}
+.foot-cite{font-size:.85rem;color:#556}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media (max-width:640px){ .plant{grid-template-columns:1fr} .grid-2{grid-template-columns:1fr}}
